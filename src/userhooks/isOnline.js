@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function IsOnline() {
+function useOnline() {
   const [isOnline, setIsOnline] = useState(true)
   useEffect(() => {
     window.addEventListener('online', () => setIsOnline(true))
@@ -10,9 +10,6 @@ export default function IsOnline() {
       window.removeEventListener('offline', () => setIsOnline(false))
     }
   }, [])
-  return (
-    <h2> 
-        { isOnline ? 'You are ONLINE' : 'Disconnected!'}
-    </h2>
-  )
+  return isOnline
 }
+export default useOnline

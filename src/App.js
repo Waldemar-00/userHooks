@@ -1,12 +1,19 @@
 import './App.css'
-import IsOnline from './userhooks/isOnline'
-
+import  useOnline  from './userhooks/isOnline'
+const StatusConnect = () => {
+const isOnline = useOnline()
+  return (
+  <h2> 
+    { isOnline ? 'You are ONLINE' : 'DISCONNECTED!!!'}
+  </h2>
+  )
+}
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <h1>User hooks of React</h1>
-        <IsOnline/>
+        <StatusConnect/>
       </header>
     </div>
   );
